@@ -643,7 +643,7 @@ print('=' * 70)
 #@title Test INTs
 
 train_data1 = random.choice(melody_chords_f + melody_chords_f_aug)
-train_data1 = melody_chords_f[0]
+
 print('Sample INTs', train_data1[:15])
 
 out = train_data1
