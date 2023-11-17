@@ -145,7 +145,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                   else:
                     event.extend([0])
 
-                  if event[0] == 'text_event' or event[0] == 'lyric' or event[0] == 'patch_change':
+                  if event[0] == 'text_event' or event[0] == 'lyric' or event[0] == 'patch_change' or event[0] == 'time_signature':
                     event[4] = 128
 
                   events_matrix.append(event)
