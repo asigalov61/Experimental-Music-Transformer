@@ -171,12 +171,13 @@ def TMIDIX_MIDI_Processor(midi_file):
 
                   if event[0] == 'note' and int(event[1] / 8) > int(emphasis_time / 8) and event[1] > pt:
                         event.extend([2])
+                        emph_once = False
 
                   if event[0] == 'note' and int(event[1] / 8) == int(emphasis_time / 8) and emph_once:
                         event.extend([1])
                         emph_once = False
 
-                  else:
+                  if event[0] == 'note' and not emph_once:
                         event.extend([0])
 
                   pt = event[1]
