@@ -121,7 +121,7 @@ def TMIDIX_MIDI_Processor(midi_file):
           #=======================================================
           # START PROCESSING
 
-          score = TMIDIX.midi2single_track_ms_score(open(filez[0], 'rb').read(), recalculate_channels=False, pass_old_timings_events=True)
+          score = TMIDIX.midi2single_track_ms_score(open(midi_file, 'rb').read(), recalculate_channels=False, pass_old_timings_events=True)
 
           # INSTRUMENTS CONVERSION CYCLE
           events_matrix = []
