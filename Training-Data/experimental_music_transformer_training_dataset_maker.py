@@ -338,7 +338,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                               pat = 16
 
                           else:
-                              pat = e[6] // 8
+                              pat = max(0, min(127, e[6]))
 
                           # Pitches
                           ptc = max(1, min(127, e[4]))
@@ -375,9 +375,9 @@ def TMIDIX_MIDI_Processor(midi_file):
 
                             old_time_key_seq = time_key_seq
 
-                            time_key_seq[0] = max(254, time_key_seq[0]) + 8451
-                            time_key_seq[1] = max(128, time_key_seq[1]) + 8706
-                            time_key_seq[2] = max(16, time_key_seq[2]) + 8834
+                            time_key_seq[0] = max(0, min(254, time_key_seq[0])) + 8451
+                            time_key_seq[1] = max(0, min(128, time_key_seq[1])) + 8706
+                            time_key_seq[2] = max(0, min(16, time_key_seq[2])) + 8834
 
                             melody_chords.extend([8450] + time_key_seq)
 
@@ -497,7 +497,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                               pat = 16
 
                           else:
-                              pat = e[6] // 8
+                              pat = max(0, min(127, e[6])) // 8
 
                           # Pitches
                           ptc = max(1, min(127, e[4]))
@@ -532,9 +532,9 @@ def TMIDIX_MIDI_Processor(midi_file):
                           if time_key_seq != old_time_key_seq:
                             old_time_key_seq = time_key_seq
 
-                            time_key_seq[0] = max(254, time_key_seq[0]) + 8451
-                            time_key_seq[1] = max(128, time_key_seq[1]) + 8706
-                            time_key_seq[2] = max(16, time_key_seq[2]) + 8834
+                            time_key_seq[0] = max(0, min(254, time_key_seq[0])) + 8451
+                            time_key_seq[1] = max(0, min(128, time_key_seq[1])) + 8706
+                            time_key_seq[2] = max(0, min(16, time_key_seq[2])) + 8834
 
                             melody_chords_aug.extend([8450] + time_key_seq)
 
