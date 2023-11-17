@@ -325,7 +325,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                           bar_time = abs_time // 512
                           bar_time_local = abs_time % 512
 
-                          if bar_time >= 1024:
+                          if bar_time >= 1022:
                               break
 
                           # Durations and channels
@@ -484,7 +484,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                           bar_time = abs_time // 512
                           bar_time_local = abs_time % 512
 
-                          if bar_time >= 1024:
+                          if bar_time >= 1022:
                               break
 
                           # Durations and channels
