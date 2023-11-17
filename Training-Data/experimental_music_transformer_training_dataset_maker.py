@@ -192,7 +192,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                   # Time and key sigs
 
                   if event[0] == 'time_signature':
-                        time_sig = round((event[2] / event[3]) * 10)
+                        time_sig = round((event[2] / max(1, event[3])) * 10)
 
                   if event[0] == 'key_signature':
                         key_sig = (event[3] * 16) + event[2]+8
