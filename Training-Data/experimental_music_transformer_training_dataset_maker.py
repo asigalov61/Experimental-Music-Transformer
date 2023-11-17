@@ -121,16 +121,15 @@ def TMIDIX_MIDI_Processor(midi_file):
           #=======================================================
           # START PROCESSING
 
-          # Convering MIDI to ms score with MIDI.py module
-          score = TMIDIX.midi2single_track_ms_score(open(midi_file, 'rb').read(), recalculate_channels=False, pass_old_timings_events=True)
+          score = TMIDIX.midi2single_track_ms_score(open(filez[0], 'rb').read(), recalculate_channels=False, pass_old_timings_events=True)
 
           # INSTRUMENTS CONVERSION CYCLE
           events_matrix = []
           itrack = 1
           patches = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-          emphasis_time = 0
           emph_once = False
+          emphasis_time = 0
 
           tpq = 0
           tempo = 0
@@ -157,6 +156,8 @@ def TMIDIX_MIDI_Processor(midi_file):
 
           events_matrix1 = []
 
+          pt = events_matrix[0][1]
+
           for event in events_matrix:
                   if event[0] == 'patch_change':
                         patches[event[2]] = event[3]
@@ -168,11 +169,17 @@ def TMIDIX_MIDI_Processor(midi_file):
                         emphasis_time = event[1]
                         emph_once = True
 
+                  if event[0] == 'note' and int(event[1] / 8) > int(emphasis_time / 8) and event[1] > pt:
+                        event.extend([2])
+
                   if event[0] == 'note' and int(event[1] / 8) == int(emphasis_time / 8) and emph_once:
                         event.extend([1])
                         emph_once = False
+
                   else:
                         event.extend([0])
+
+                  pt = event[1]
 
                   #========================================================================
                   # Tempo
@@ -377,7 +384,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                           # Bar counter seq
 
                           if (bar_time > pbar_time) and (delta_time != 0):
-                              bar = 6786+min(1023, (bar_time)) # bar counter seq
+                              bar = 6787+min(1022, (bar_time)) # bar counter seq
                               bar_t = 7810+bar_time_local
                               bar_p = 8322+ptc
                               melody_chords.extend([6786, bar, bar_t, bar_p])
@@ -534,7 +541,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                           # Bar counter seq
 
                           if (bar_time > pbar_time) and (delta_time != 0):
-                              bar = 6786+min(1023, (bar_time)) # bar counter seq
+                              bar = 6787+min(1022, (bar_time)) # bar counter seq
                               bar_t = 7810+bar_time_local
                               bar_p = 8322+ptc
                               melody_chords_aug.extend([6786, bar, bar_t, bar_p])
