@@ -142,7 +142,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                   if event[0] != 'note':
                     event.extend([0, 128])
                   else:
-                    event.extend([0])
+                    event.extend([0, 0])
 
                   if event[0] == 'text_event' or event[0] == 'lyric' or event[0] == 'patch_change' or event[0] == 'time_signature':
                     event[4] = 128
@@ -166,19 +166,16 @@ def TMIDIX_MIDI_Processor(midi_file):
                   # Emphasis
 
                   if event[0] == 'text_event' or event[0] == 'lyric':
-                        emphasis_time = event[1]
-                        emph_once = True
+                       emphasis_time = event[1]
+                       emph_once = True
 
                   if event[0] == 'note' and int(event[1] / 8) > int(emphasis_time / 8) and event[1] > pt:
-                        event.extend([2])
-                        emph_once = False
+                       event[7] = 2
+                       emph_once = False
 
                   if event[0] == 'note' and int(event[1] / 8) == int(emphasis_time / 8) and emph_once:
-                        event.extend([1])
-                        emph_once = False
-
-                  if event[0] == 'note' and not emph_once:
-                        event.extend([0])
+                       event[7] = 1
+                       emph_once = False
 
                   pt = event[1]
 
@@ -284,7 +281,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                           drums_present = 8851 # No
 
                       if events_matrix1[0][3] != 9:
-                          pat = events_matrix1[0][6] // 8
+                          pat = max(0, min(127, events_matrix1[0][6])) // 8
                       else:
                           pat = 16
 
@@ -338,7 +335,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                               pat = 16
 
                           else:
-                              pat = max(0, min(127, e[6]))
+                              pat = max(0, min(127, e[6])) // 8
 
                           # Pitches
                           ptc = max(1, min(127, e[4]))
@@ -443,7 +440,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                           drums_present = 8851 # No
 
                       if events_matrix2[0][3] != 9:
-                          pat = events_matrix2[0][6] // 8
+                          pat = max(0, min(127, events_matrix2[0][6])) // 8
                       else:
                           pat = 16
 
