@@ -5,5 +5,12 @@
 
 ***
 
+## Version 1.0
+
+### Main feature in this version are the emphasis tokens. This should allow to condition the model on simple lyrics
+### Other notable features are the bar counters, time signatures and key tokens
+
+***
+
 ### Project Los Angeles
 ### Tegridy Code 2023
