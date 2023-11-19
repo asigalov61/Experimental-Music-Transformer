@@ -385,7 +385,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                               bar = 6787+min(1022, (bar_time)) # bar counter seq
                               bar_t = 7810+bar_time_local
                               bar_p = 8322+ptc
-                              melody_chords.extend([6786, bar, bar_t, bar_p])
+                              melody_chords.extend([6787, bar, bar_t, bar_p])
                               chords_counter += 1
                               pbar_time = bar_time
 
@@ -542,7 +542,7 @@ def TMIDIX_MIDI_Processor(midi_file):
                               bar = 6787+min(1022, (bar_time)) # bar counter seq
                               bar_t = 7810+bar_time_local
                               bar_p = 8322+ptc
-                              melody_chords_aug.extend([6786, bar, bar_t, bar_p])
+                              melody_chords_aug.extend([6787, bar, bar_t, bar_p])
                               chords_counter += 1
                               pbar_time = bar_time
 
