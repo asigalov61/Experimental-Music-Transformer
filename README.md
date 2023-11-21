@@ -7,8 +7,12 @@
 
 ## Version 1.0
 
-### Main feature in this version are the emphasis tokens. This should allow to condition the model on simple lyrics
-### Other notable features are the bar counters, time signatures and key tokens
+[![Open In Colab][colab-badge]][colab-notebook2]
+
+[colab-notebook2]: <https://colab.research.google.com/github/asigalov61/Experimental-Music-Transformer/blob/main/Experimental_Music_Transformer_Version_1.ipynb>
+[colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+
+### Main feature in this version are the emphasis tokens. This should allow to condition the model on simple lyrics.
 
 ***
 
