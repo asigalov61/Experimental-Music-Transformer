@@ -16,5 +16,17 @@
 
 ***
 
+## Version 2.0
+
+[![Open In Colab][colab-badge]][colab-notebook3]
+
+[colab-notebook3]: <https://colab.research.google.com/github/asigalov61/Experimental-Music-Transformer/blob/main/Experimental_Music_Transformer_Version_2.ipynb>
+[colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+
+### This version tries to utilize mixed continious/discrete transformer implementation to improve the quality of the generated ouput
+### For more info please see [x-transformers](https://github.com/lucidrains/x-transformers) repo / [XVal implementation](https://github.com/lucidrains/x-transformers/blob/main/x_transformers/xval.py)
+
+***
+
 ### Project Los Angeles
 ### Tegridy Code 2023
