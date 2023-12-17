@@ -16,7 +16,7 @@
 
 ***
 
-## Version 2.0
+## [WIP] [DEV] Version 2.0
 
 [![Open In Colab][colab-badge]][colab-notebook3]
 
@@ -25,6 +25,17 @@
 
 ### This version tries to utilize mixed continious/discrete transformer implementation to improve the quality of the generated ouput
 ### For more info please see [x-transformers](https://github.com/lucidrains/x-transformers) repo / [XVal implementation](https://github.com/lucidrains/x-transformers/blob/main/x_transformers/xval.py)
+
+***
+
+## Version 3.0
+
+[![Open In Colab][colab-badge]][colab-notebook4]
+
+[colab-notebook4]: <https://colab.research.google.com/github/asigalov61/Experimental-Music-Transformer/blob/main/Experimental_Music_Transformer_Version_3.ipynb>
+[colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+
+### Nice and robust seq2seq implementation for music seq2seq experiments. This version tries to model seq2seq accompaniment generation
 
 ***
 
